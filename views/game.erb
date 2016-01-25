@@ -10,12 +10,19 @@
       </h1>
     </header>
 
-    <div class="towers row well"></div><!-- towers -->
+    <h1> <%= error_msg %> </h1>
+
+    <div class="towers row well"></div>
+    <%= erb :tower, :locals => {:tower => tower.towers} %><!-- towers -->
 
       <div class="form row">
         <div class="col-xs-6 col-xs-offset-3"></div>
-      </div><!-- form -->
+      </div>
+      <%= erb :form %><!-- form -->
 
   </div>
-</div><!-- game -->
+</div>
+
+<%= erb :tower, :locals => {:tower => tower.towers, :tower_number => tower.towers.length} %>
+<!-- game -->
 

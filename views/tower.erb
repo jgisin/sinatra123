@@ -19,12 +19,24 @@ Where can we get this number from???
     Disks must be rendered below this
     to format the stacking of disks correctly
     %>
-    <% (3 - tower.length).times do |i| %>
-      <div class="col-xs-12">&nbsp;</div>
+    <% (tower.length).times do |i| %>
+      <div class="col-xs-12 tower">&nbsp;</div>
+        <div class ="tower-<%= i %> tower_number"> <%=tower[i].length%>
     <% end %>
-    
+    <% tower.each_with_index do |tower, index|%>
+
+          <% tower.each do |disk| %>
+          <div class = "disk-<%=disk%>">
+            <%= erb :disk, :locals => {:disk => disk} %>
+          </div>
+          <%end%>
+        </div>
+    <%end%>
     <%# Render me some disks? %>
 
-  </div><!-- disks -->
+  </div>
+
+  <!-- disks -->
+
 </div><!-- tower -->
 
